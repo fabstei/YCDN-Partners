@@ -1,49 +1,11 @@
-<h1>Partner list</h1>
-
-<table class="records_list">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Base</th>
-            <th>Website</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Description</th>
-            <th>Logo</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('partner_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.name }}</td>
-            <td>{{ entity.base }}</td>
-            <td>{{ entity.website }}</td>
-            <td>{{ entity.email }}</td>
-            <td>{{ entity.phone }}</td>
-            <td>{{ entity.description }}</td>
-            <td>{{ entity.logo }}</td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('partner_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('partner_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<h1>Partner Organizations</h1>
 
 <ul>
-    <li>
-        <a href="{{ path('partner_new') }}">
-            Create a new entry
-        </a>
-    </li>
+    {% for entity in entities %}
+            <li>
+                <a href="{{ path('partner_show', { 'id': entity.id }) }}">{{ entity.name }}</a> from {{ entity.base }}
+            </li>
+    {% endfor %}
 </ul>
+
+<a href="{{ path('partner_new') }}">Add a new Organization</a>
