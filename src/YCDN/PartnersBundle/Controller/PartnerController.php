@@ -12,7 +12,7 @@ use YCDN\PartnersBundle\Form\PartnerType;
 /**
  * Partner controller.
  *
- * @Route("/partner")
+ * @Route("")
  */
 class PartnerController extends Controller
 {
