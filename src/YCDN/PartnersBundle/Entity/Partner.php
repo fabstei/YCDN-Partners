@@ -40,7 +40,8 @@ class Partner
     /**
      * @var string $website
      *
-     * @ORM\Column(name="website", type="string", length=255)
+     * @ORM\Column(name="website", type="string", length=255, nullable="true")
+     * @Assert\Url
      */
     private $website;
 
@@ -48,13 +49,14 @@ class Partner
      * @var string $email
      *
      * @ORM\Column(name="email", type="string", length=255)
+     * @Assert\Email
      */
     private $email;
 
     /**
      * @var string $phone
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="string", length=255, nullable="true")
      */
     private $phone;
 
@@ -92,7 +94,7 @@ class Partner
         $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
 
         // set the path property to the filename where you'ved saved the file
-        $this->setPath($this->file->getClientOriginalName());
+        $this->setLogo($this->file->getClientOriginalName());
 
         // clean up the file property as you won't need it anymore
         $this->file = null;
